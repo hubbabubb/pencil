@@ -1,0 +1,50 @@
+@import "../../../../styles";
+
+.footer-container {
+  position: relative;
+  border-top: 1px solid $gray;
+  height: $footer-height;
+}
+
+.trash {
+  font-size: 28pt;
+  color: $green;
+  background-color: transparent;
+  border: 0;
+  position: absolute;
+  height: 52px;
+  left: 0;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trash:disabled {
+  color: $gray;
+}
+
+.control-buttons--container {
+  margin-left: $row-width;
+  font-size: 28pt;
+  letter-spacing: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.save {
+  color: #3978bd;
+}
+
+.save:hover {
+  color: #2d5f93;
+}
+
+.cancel {
+  color: #bf5727;
+}
+
+.cancel:hover {
+  color: #90411b;
+}

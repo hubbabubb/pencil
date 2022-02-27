@@ -1,0 +1,13 @@
+<div class="checkbox">
+  <a
+    style="cursor: pointer"
+    (click)="clickHandler()"
+  >
+    <div *ngIf="checked; else unchecked">
+      <i class="bi bi-circle-fill green"></i>
+    </div>
+    <ng-template #unchecked>
+      <i class="bi bi-circle gray"></i>
+    </ng-template>
+  </a>
+</div>

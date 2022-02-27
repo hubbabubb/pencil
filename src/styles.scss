@@ -2,3 +2,81 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons';
+
+/* Importing Google Fonts - Open Sans. */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap');
+
+$note-width: 500px;
+$note-height: 800px;
+$row-width: 60px;
+$row-height: 52px;
+$paper-color: #faf2c7;
+$gray: #a2a1a1;
+$green: #197139;
+$header-height: 160px;
+$body-height: 520px;
+$footer-height: 120px;
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: $gray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+input, textarea {
+  background-color: transparent;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+a:hover {
+  color: $green;
+}
+
+a .disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+.vertical-line {
+  z-index: 1;
+  position: absolute;
+  top: $header-height;
+  left: $row-width;
+  height: $note-height;
+  width: 0.25px;
+  border-left: 1px solid $gray;
+}
+
+.border {
+  border: 1px solid red;
+}
+
+.body-overflow {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: $body-height;
+  position: static;
+}
+
+.body-overflow::-webkit-scrollbar {
+  background: transparent;
+}
+
+.body-overflow::-webkit-scrollbar-thumb {
+  background: $gray;
+  border-radius: 10px;
+}

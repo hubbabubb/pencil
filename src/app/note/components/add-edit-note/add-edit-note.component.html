@@ -1,1 +1,25 @@
-<p>add-edit-note works!</p>
+<div class="note-list-element--container">
+  <form [formGroup]="contentsForm">
+    <div *ngFor="let content of note.contents; let i=index">
+      <app-note-content
+        [id]="content.id"
+        [form] = "contentsForm"
+        [content]="content"
+        (createNewLine)="createContentInput()"
+        (deleteLine)="deleteContentLine($event)"
+        (contentChange)="updateContent($event)"
+        (typeChange)="changeContentType($event)"
+        (toggleCheck)="toggleCheckBox($event)"
+      ></app-note-content>
+    </div>
+  </form>
+</div>
+<div class="alert--container">
+  <ngb-alert
+    class="alert"
+    *ngIf="alert"
+    type="danger"
+    (closed)="closeAlert()"
+    [animation]="true">Note must have a title</ngb-alert
+  >
+</div>

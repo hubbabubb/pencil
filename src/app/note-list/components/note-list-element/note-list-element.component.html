@@ -1,0 +1,13 @@
+<div class="row note-list-element--container">
+  <div class="col col-1">
+    <a (click)="onToggleCheckBox()">
+      <app-check-box [id]="note.id" [checked]="note.checked"></app-check-box>
+    </a>
+  </div>
+  <div class="note-list-element">
+    <a (click)="onEditNote()">
+      <h3 [class]="!note.checked ? 'note-list--title' : 'note-list--title checked'">{{note.title}}</h3>
+      <p [class]="!note.checked ? 'note-list--date' : 'note-list--date checked'">{{note.creationDate}}</p>
+    </a>
+  </div>
+</div>

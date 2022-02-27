@@ -1,0 +1,29 @@
+<div class="row" [formGroup]="form">
+  <div class="col col-1" *ngIf="content.type===0">
+    <div class="switch-todo">
+      <a
+        [class]="isOnHover ? 'switchTodoOn': 'switchTodoOff'"
+        (click)="onTypeChange()"
+      ><i class="bi bi-check2-square"></i></a>
+    </div>
+  </div>
+  <div class="col col-1" *ngIf="content.type===1">
+    <a (click)="onCheckToggle()">
+      <app-check-box [id]="content.id" [checked]="content.checked"></app-check-box>
+    </a>
+  </div>
+
+  <div class="content-input--container">
+    <textarea
+      [rows]="1"
+      [class]="!content.checked ? 'content-input' : 'content-input content-input--checked'"
+      [formControlName]="content.id.toString()"
+      [id]="id"
+      (keydown)="onInputChange($event)"
+      placeholder="Content"
+      autoFocus
+      appTextareaAutosize
+    ></textarea>
+  </div>
+
+</div>

@@ -1,0 +1,20 @@
+@import "../../../../styles";
+
+.checkbox {
+  z-index: 1;
+  position: absolute;
+  height: 52px;
+  left: 0;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.green {
+  color: $green;
+}
+
+.gray {
+  color: $gray;
+}

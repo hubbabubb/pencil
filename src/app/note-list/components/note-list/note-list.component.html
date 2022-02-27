@@ -1,1 +1,6 @@
-<p>note-list works!</p>
+<div *ngFor="let note of notes">
+  <app-note-list-element
+    [note]="note"
+    (toggleCheckBox)="toggleCheckBox($event)"
+  ></app-note-list-element>
+</div>

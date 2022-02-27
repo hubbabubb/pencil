@@ -1,0 +1,12 @@
+@import "../../../../styles";
+
+.alert {
+  position: fixed;
+  top: 10px;
+  width: $note-width;
+  border-radius: 10px;
+}
+
+.alert--container {
+  justify-content: center;
+}

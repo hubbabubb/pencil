@@ -1,8 +1,20 @@
-<app-header></app-header>
-<div class="container">
+<div class="container note-container">
   <div class="row">
     <div class="col-md-12">
-      <router-outlet></router-outlet>
+      <app-note-header></app-note-header>
+    </div>
+  </div>
+  <div class="vertical-line"></div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="body-container body-overflow">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <app-note-footer></app-note-footer>
     </div>
   </div>
 </div>

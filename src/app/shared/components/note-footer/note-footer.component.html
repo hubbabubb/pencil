@@ -1,0 +1,33 @@
+<div class="footer-container">
+
+  <div *ngIf="!footerProperties.editMode" class="col">
+    <button
+      *ngIf="footerProperties.isAnyNote"
+      [disabled]="!footerProperties.trashOn"
+      class="trash"
+      (click)="onDelete()"
+    >
+      <i class="bi bi-trash3-fill"></i>
+    </button>
+  </div>
+
+  <div *ngIf="footerProperties.editMode" class="col">
+    <button
+      class="trash"
+      *ngIf="footerProperties.isAnyTodo"
+      [disabled]="!footerProperties.trashOn"
+      (click)="onDelete()"
+    >
+      <i class="bi bi-trash3-fill"></i>
+    </button>
+    <div class="control-buttons--container">
+      <a class="save" (click)="onSave()">
+        <i class="bi bi-check-circle-fill"></i>
+      </a>
+      <a class="cancel" (click)="onClose()">
+        <i class="bi bi-x-circle-fill"></i>
+      </a>
+    </div>
+  </div>
+
+</div>
