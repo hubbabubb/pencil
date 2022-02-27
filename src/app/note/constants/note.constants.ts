@@ -1,5 +1,3 @@
-import {UUID} from "angular2-uuid";
-
 export interface Note {
   id: string;
   title: string;
@@ -30,11 +28,11 @@ export const INIT_CONTENT: NoteContent = {
 }
 
 export const INIT_NOTE: Note = {
-  id: UUID.UUID(),
+  id: '',
   title: '',
   creationDate: new Date(),
   checked: false,
-  contents: [INIT_CONTENT]
+  contents: [{ ...INIT_CONTENT }]
 }
 
 export const DEMO_DATA: Note[] = [

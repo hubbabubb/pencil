@@ -4,7 +4,7 @@ import {NoteService} from "../../service/note.service";
 import {HeaderService} from "../../../shared/service/header.service";
 import {ContentType, INIT_CONTENT, INIT_NOTE, Note, NoteContent} from "../../constants/note.constants";
 import {Subscription} from "rxjs";
-import {FormArray, FormControl, FormGroup} from "@angular/forms";
+import { FormControl, FormGroup} from "@angular/forms";
 import {FooterService} from "../../../shared/service/footer.service";
 
 @Component({
@@ -48,7 +48,7 @@ export class NoteComponent implements OnInit, OnDestroy {
         (params: Params) => {
           this.id = params['id'];
           this.editMode = params['id'] != null;
-          this.editMode ? this.setEditMode() : this.setNewNote();
+          this.editMode ? this.setNoteById() : this.setNewNote();
           this.setHeader();
           this.setFooter();
         });
@@ -60,7 +60,7 @@ export class NoteComponent implements OnInit, OnDestroy {
     })
   }
 
-  private setEditMode() {
+  private setNoteById() {
     const note = this.noteService.getNoteById(this.id);
     this.note = { ...note };
 
@@ -68,8 +68,9 @@ export class NoteComponent implements OnInit, OnDestroy {
   }
 
   private setNewNote() {
-    this.note = INIT_NOTE;
-
+    this.note = { ...INIT_NOTE };
+    this.note.id = this.noteService.generateId();
+    this.note.contents = [{ ...INIT_CONTENT }];
     this.toFormGroup();
   }
 
@@ -142,10 +143,6 @@ export class NoteComponent implements OnInit, OnDestroy {
     this.note.contents[data.id].content = data.content;
   }
 
-  get contents() {
-    return this.contentsForm.get('contents') as FormArray;
-  }
-
   changeContentType(id: number): void {
     this.note.contents[id].type = ContentType.TODO;
     this.setFooter();
@@ -168,7 +165,7 @@ export class NoteComponent implements OnInit, OnDestroy {
 
       this.note.contents = newContents;
       if (this.note.contents.length === 0) {
-        this.note.contents = [INIT_CONTENT];
+        this.note.contents = [{ ...INIT_CONTENT }];
       }
 
       this.toFormGroup();

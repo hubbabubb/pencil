@@ -17,7 +17,7 @@ export class NoteService {
   saveNote(note: Note): void {
     const newNotes = this._notes.getValue();
     newNotes.push(note);
-    this.saveNotes(newNotes);
+    this.saveNotes([...newNotes]);
   }
 
   saveNotes(newNotes: Note[]) {
@@ -56,5 +56,9 @@ export class NoteService {
     const note = this._notes.getValue().find(note => note.id === id);
 
     return note ? note : INIT_NOTE;
+  }
+
+  generateId(): string {
+    return Math.random().toString(36).slice(2, 9);
   }
 }

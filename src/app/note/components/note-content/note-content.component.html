@@ -4,7 +4,11 @@
       <a
         [class]="isOnHover ? 'switchTodoOn': 'switchTodoOff'"
         (click)="onTypeChange()"
-      ><i class="bi bi-check2-square"></i></a>
+      ><i
+        placement="right"
+        ngbTooltip="Switch to-do"
+        class="bi bi-check2-square"
+      ></i></a>
     </div>
   </div>
   <div class="col col-1" *ngIf="content.type===1">
@@ -23,6 +27,7 @@
       placeholder="Content"
       autoFocus
       appTextareaAutosize
+      appPreventEnter
     ></textarea>
   </div>
 

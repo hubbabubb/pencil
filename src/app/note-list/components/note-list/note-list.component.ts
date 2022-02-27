@@ -1,11 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Note} from "../../../note/constants/note.constants";
 import {NoteService} from "../../../note/service/note.service";
-import {map, Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 import {HeaderService} from "../../../shared/service/header.service";
 import {HEADER_TITLES, HeaderTitle} from "../../../shared/constants/header.constants";
 import {FooterService} from "../../../shared/service/footer.service";
-import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-note-list',
@@ -22,8 +21,7 @@ export class NoteListComponent implements OnInit, OnDestroy {
   constructor(
     private noteService: NoteService,
     private headerService: HeaderService,
-    private footerService: FooterService,
-    private datePipe: DatePipe
+    private footerService: FooterService
   ) {
   }
 
@@ -34,20 +32,9 @@ export class NoteListComponent implements OnInit, OnDestroy {
 
   private subscribeForNotes() {
     this.noteSubscription = this.noteService.notes
-      .pipe(
-        map(notes => {
-          return notes.map(note => {
-            return {
-              ...note,
-              creationDate: this.datePipe.transform(note.creationDate, "yyyy.MM.dd. HH:mm")
-            }
-          })
-        })
-      )
       .subscribe(notes => {
         this.notes = notes;
         this.isAnyNotes = notes.length > 0;
-
         this.setHeaderTitle();
         this.setFooter();
       })

@@ -23,7 +23,6 @@ export class NoteContentComponent {
     let value = event.target.value;
     this.contentChange.next({id: this.content.id, content: value});
     if (event.key === "Enter") {
-      event.preventDefault();
       this.createNewLine.next('');
     }
 

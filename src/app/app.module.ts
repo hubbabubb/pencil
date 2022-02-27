@@ -15,6 +15,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { AutoFocusDirective } from './shared/directives/auto-focus/auto-focus.directive';
 import {DatePipe} from "@angular/common";
 import { TextareaAutosizeDirective } from './shared/directives/textarea-autosize/textarea-autosize.directive';
+import { PreventEnterDirective } from './shared/directives/prevent-enter/prevent-enter.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TextareaAutosizeDirective } from './shared/directives/textarea-autosize
     CheckBoxComponent,
     NoteFooterComponent,
     AutoFocusDirective,
-    TextareaAutosizeDirective
+    TextareaAutosizeDirective,
+    PreventEnterDirective
   ],
   imports: [
     BrowserModule,

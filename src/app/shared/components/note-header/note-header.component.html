@@ -19,6 +19,7 @@
       [maxLength]="TITLE_MAX_LENGTH"
       (input)="onHeaderTitleChange($event)"
       class="header-input"
+      appPreventEnter
     >{{title.title}}</textarea>
   </ng-template>
 </div>
