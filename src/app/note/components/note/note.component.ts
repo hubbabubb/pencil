@@ -9,10 +9,10 @@ import {FooterService} from "../../../shared/service/footer.service";
 
 @Component({
   selector: 'app-add-edit-note',
-  templateUrl: './add-edit-note.component.html',
-  styleUrls: ['./add-edit-note.component.scss']
+  templateUrl: './note.component.html',
+  styleUrls: ['./note.component.scss']
 })
-export class AddEditNoteComponent implements OnInit, OnDestroy {
+export class NoteComponent implements OnInit, OnDestroy {
 
   private routeSubscription: Subscription;
   private titleSubscription: Subscription;
@@ -48,7 +48,6 @@ export class AddEditNoteComponent implements OnInit, OnDestroy {
         (params: Params) => {
           this.id = params['id'];
           this.editMode = params['id'] != null;
-          console.log(this.id)
           this.editMode ? this.setEditMode() : this.setNewNote();
           this.setHeader();
           this.setFooter();
@@ -63,8 +62,7 @@ export class AddEditNoteComponent implements OnInit, OnDestroy {
 
   private setEditMode() {
     const note = this.noteService.getNoteById(this.id);
-    console.log(note)
-    this.note = { ...note }
+    this.note = { ...note };
 
     this.toFormGroup();
   }

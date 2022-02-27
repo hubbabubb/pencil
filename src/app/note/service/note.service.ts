@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 
-import {ContentType, INIT_NOTE, Note} from "../constants/note.constants";
+import {ContentType, DEMO_DATA, INIT_NOTE, Note} from "../constants/note.constants";
 
 @Injectable({
   providedIn: 'root'
@@ -40,82 +40,11 @@ export class NoteService {
   private setNotes(): void {
     const storedNotesString = localStorage.getItem('notes');
 
-    //TODO: DEMO DATA - Should remove
-    const demoData: Note[] = [
-      {
-        id: '01fdsfdsf343fgdfd',
-        title: 'Test title one',
-        contents: [
-          {
-          id: 0,
-          content: 'Lorem ipsum dolor sit amet, ',
-          type: ContentType.TEXT,
-          checked: false
-        },{
-          id: 1,
-          content: 'consectetuer adipiscing elit, ',
-          type: ContentType.TEXT,
-          checked: false
-        },{
-          id: 2,
-          content: 'mod tincidunt ut laoreet dolore ',
-          type: ContentType.TEXT,
-          checked: false
-        },{
-          id: 3,
-          content: 'Todo 1',
-          type: ContentType.TODO,
-          checked: false
-        },{
-          id: 4,
-          content: 'Todo 2',
-          type: ContentType.TODO,
-          checked: true
-        },
-        ],
-        creationDate: new Date(),
-        checked: true
-      },{
-        id: 'dgdfgdf56456456',
-        title: 'Test title two',
-        contents: [
-          {
-          id: 0,
-          content: 'Lorem ipsum dolor sit amet, ',
-          type: ContentType.TEXT,
-          checked: false
-        },{
-          id: 1,
-          content: 'consectetuer adipiscing elit, ',
-          type: ContentType.TEXT,
-          checked: false
-        },{
-          id: 2,
-          content: 'mod tincidunt ut laoreet dolore ',
-          type: ContentType.TEXT,
-          checked: false
-        },{
-          id: 3,
-          content: 'Todo 1',
-          type: ContentType.TODO,
-          checked: false
-        },{
-          id: 4,
-          content: 'Todo 2',
-          type: ContentType.TODO,
-          checked: true
-        },
-        ],
-        creationDate: new Date(),
-        checked: false
-      },
-    ];
-
     if (storedNotesString) {
       const storedNotes = JSON.parse(storedNotesString)
       this._notes = new BehaviorSubject<Note[]>(storedNotes);
     } else {
-      this._notes = new BehaviorSubject<Note[]>(demoData);
+      this._notes = new BehaviorSubject<Note[]>(DEMO_DATA);
     }
   }
 

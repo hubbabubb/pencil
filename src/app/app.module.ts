@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NoteHeaderComponent } from './shared/components/note-header/note-header.component';
 import { NoteListComponent } from './note-list/components/note-list/note-list.component';
-import { AddEditNoteComponent } from './note/components/add-edit-note/add-edit-note.component';
+import { NoteComponent } from './note/components/note/note.component';
 import { NoteContentComponent } from './note/components/note-content/note-content.component';
 import { NoteListElementComponent } from './note-list/components/note-list-element/note-list-element.component';
 import { CheckBoxComponent } from './shared/components/check-box/check-box.component';
@@ -21,7 +21,7 @@ import { TextareaAutosizeDirective } from './shared/directives/textarea-autosize
     AppComponent,
     NoteHeaderComponent,
     NoteListComponent,
-    AddEditNoteComponent,
+    NoteComponent,
     NoteContentComponent,
     NoteListElementComponent,
     CheckBoxComponent,
