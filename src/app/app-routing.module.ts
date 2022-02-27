@@ -5,7 +5,8 @@ import {AddEditNoteComponent} from "./note/components/add-edit-note/add-edit-not
 
 const routes: Routes = [
   {path: '', component: NoteListComponent, pathMatch: 'full'},
-  {path: 'note', component: AddEditNoteComponent}
+  {path: 'note', component: AddEditNoteComponent},
+  {path: 'note/:id', component: AddEditNoteComponent}
 ];
 
 @NgModule({
