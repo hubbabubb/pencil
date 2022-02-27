@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 
-import {ContentType, DEMO_DATA, INIT_NOTE, Note} from "../constants/note.constants";
+import {DEMO_DATA, INIT_NOTE, Note} from "../constants/note.constants";
 
 @Injectable({
   providedIn: 'root'

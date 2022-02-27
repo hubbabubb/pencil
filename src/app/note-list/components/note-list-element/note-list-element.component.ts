@@ -19,6 +19,7 @@ export class NoteListElementComponent implements OnInit {
 
   onEditNote() {
     this.router.navigate(['note', this.note.id])
+      .catch(err => console.error(err));
   }
 
   onToggleCheckBox() {

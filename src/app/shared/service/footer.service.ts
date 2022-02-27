@@ -1,7 +1,6 @@
 import {EventEmitter, Injectable, OnDestroy} from '@angular/core';
 import {BehaviorSubject, Subscription} from "rxjs";
 import {FooterProperties} from "../constants/footer.constants";
-import {Note} from "../../note/constants/note.constants";
 
 @Injectable({
   providedIn: 'root'

@@ -82,24 +82,63 @@ export const DEMO_DATA: Note[] = [
         checked: false
       },{
         id: 1,
+        content: 'Todo 1',
+        type: ContentType.TODO,
+        checked: false
+      }, {
+        id: 2,
         content: 'consectetuer adipiscing elit, ',
         type: ContentType.TEXT,
         checked: false
       },{
-        id: 2,
+        id: 3,
         content: 'mod tincidunt ut laoreet dolore ',
         type: ContentType.TEXT,
-        checked: false
-      },{
-        id: 3,
-        content: 'Todo 1',
-        type: ContentType.TODO,
         checked: false
       },{
         id: 4,
         content: 'Todo 2',
         type: ContentType.TODO,
         checked: true
+      },
+    ],
+    creationDate: new Date(),
+    checked: false
+  },{
+    id: '234423Dfdsfdfs345"',
+    title: 'This is a really long title',
+    contents: [
+      {
+        id: 0,
+        content: 'Todo 1',
+        type: ContentType.TODO,
+        checked: false
+      },
+      {
+        id: 1,
+        content: 'Todo 2',
+        type: ContentType.TODO,
+        checked: false
+      },{
+        id: 2,
+        content: 'Lorem ipsum dolor sit amet, ',
+        type: ContentType.TEXT,
+        checked: false
+      },{
+        id: 3,
+        content: 'Todo 3',
+        type: ContentType.TODO,
+        checked: false
+      }, {
+        id: 4,
+        content: 'consectetuer adipiscing elit, ',
+        type: ContentType.TEXT,
+        checked: false
+      },{
+        id: 5,
+        content: 'mod tincidunt ut laoreet dolore ',
+        type: ContentType.TEXT,
+        checked: false
       },
     ],
     creationDate: new Date(),
