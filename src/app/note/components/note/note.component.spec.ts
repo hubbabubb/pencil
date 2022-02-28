@@ -11,7 +11,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HeaderService} from "../../../shared/service/header.service";
 import {HeaderTitle} from "../../../shared/constants/header.constants";
 
-describe('AddEditNoteComponent', () => {
+describe('NoteComponent', () => {
   let component: NoteComponent;
   let fixture: ComponentFixture<NoteComponent>;
 
