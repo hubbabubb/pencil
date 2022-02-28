@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 
-import {DEMO_DATA, INIT_NOTE, Note} from "../constants/note.constants";
+import {DEMO_DATA, Note} from "../constants/note.constants";
 
 @Injectable({
   providedIn: 'root'
@@ -26,15 +26,14 @@ export class NoteService {
   }
 
   updateNote(note: Note): void {
-    const notesArray = this._notes.getValue();
+    let notes = [ ...this._notes.getValue() ];
+    let noteToUpdate = notes.find(currNote => currNote.id === note.id);
 
-    if (note) {
-      const index = notesArray.indexOf(note);
-
-      notesArray[index] = note;
+    if (noteToUpdate) {
+      let index = notes.indexOf(noteToUpdate);
+      notes[index] = note;
+      this.saveNotes(notes);
     }
-
-    this.saveNotes(notesArray);
   }
 
   private setNotes(): void {
@@ -52,10 +51,15 @@ export class NoteService {
     return this._notes.asObservable();
   }
 
-  getNoteById(id: string): Note {
-    const note = this._notes.getValue().find(note => note.id === id);
+  getNoteById(id: string): Note | undefined {
+    let note: Note| undefined;
+    note = this._notes.getValue().find(note => note.id === id);
 
-    return note ? note : INIT_NOTE;
+    if (note) {
+      return { ...note };
+    }
+
+    return note;
   }
 
   generateId(): string {

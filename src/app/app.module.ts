@@ -16,6 +16,7 @@ import { AutoFocusDirective } from './shared/directives/auto-focus/auto-focus.di
 import {DatePipe} from "@angular/common";
 import { TextareaAutosizeDirective } from './shared/directives/textarea-autosize/textarea-autosize.directive';
 import { PreventEnterDirective } from './shared/directives/prevent-enter/prevent-enter.directive';
+import { LogoComponent } from './shared/components/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PreventEnterDirective } from './shared/directives/prevent-enter/prevent
     NoteFooterComponent,
     AutoFocusDirective,
     TextareaAutosizeDirective,
-    PreventEnterDirective
+    PreventEnterDirective,
+    LogoComponent
   ],
   imports: [
     BrowserModule,

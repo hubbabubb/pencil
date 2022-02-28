@@ -48,7 +48,8 @@ export class NoteComponent implements OnInit, OnDestroy {
         (params: Params) => {
           this.id = params['id'];
           this.editMode = params['id'] != null;
-          this.editMode ? this.setNoteById() : this.setNewNote();
+
+          this.setNoteById();
           this.setHeader();
           this.setFooter();
         });
@@ -62,9 +63,14 @@ export class NoteComponent implements OnInit, OnDestroy {
 
   private setNoteById() {
     const note = this.noteService.getNoteById(this.id);
-    this.note = { ...note };
 
-    this.toFormGroup();
+    if (note) {
+      this.note = { ...note };
+      this.toFormGroup();
+    } else {
+      this.setNewNote()
+    }
+
   }
 
   private setNewNote() {
@@ -140,7 +146,16 @@ export class NoteComponent implements OnInit, OnDestroy {
   }
 
   updateContent(data: { id: number, content: string }): void {
-    this.note.contents[data.id].content = data.content;
+    let newContents = [ ...this.note.contents ];
+    let updatedContent = newContents.find(currContent => currContent.id == data.id);
+
+    if( updatedContent) {
+      updatedContent.content = data.content;
+      const index = newContents.indexOf(updatedContent);
+
+      newContents[index] = updatedContent;
+      this.note.contents = newContents;
+    }
   }
 
   changeContentType(id: number): void {

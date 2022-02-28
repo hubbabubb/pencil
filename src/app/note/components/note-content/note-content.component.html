@@ -23,7 +23,7 @@
       [class]="!content.checked ? 'content-input' : 'content-input content-input--checked'"
       [formControlName]="content.id.toString()"
       [id]="id"
-      (keydown)="onInputChange($event)"
+      (input)="onInputChange($event)"
       placeholder="Content"
       autoFocus
       appTextareaAutosize
